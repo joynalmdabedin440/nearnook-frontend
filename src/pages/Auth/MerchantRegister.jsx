@@ -1,8 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const MerchantRegister = () => {
+
+    const [err, setErr] = useState([])
+    const [success,setSuccess]=useState(false)
     const { createMerchant } = useContext(AuthContext)
     
     const navigate= useNavigate()
@@ -17,17 +20,38 @@ const MerchantRegister = () => {
         const shopType = e.target.shopType.value
         const email = e.target.email.value
         const password = e.target.password.value
+        setSuccess(false)
+        setErr([])
 
-        console.log(shopName, email, password, shopLocation, shopType, name);
+        const merchantDetails = { shopName, email, password, shopLocation, shopType, name };
+
+        fetch('http://localhost:5000/merchant', {
+            method: "POST",
+            headers: {
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(merchantDetails)
+        })
+
+        
+            .then(res => res.json())
+            .then(req => {
+            console.log(req);
+            
+        })
 
         createMerchant(email, password)
             .then(() => {
+
+
+
+                setSuccess(true)
                 navigate('/dashboard')
                 
             
             })
             .catch(error => {
-            console.log(error);
+            setErr(error.message)
             
         })
         
@@ -78,6 +102,14 @@ const MerchantRegister = () => {
                             <a rel="noopener noreferrer" href="#">Forgot Password?</a>
                         </div>
                     </div>
+
+                    {err ? <div className='text-red-600 font-semibold'>{err}</div> : ""}
+
+                    {
+                        success? <p className='text-success'>user successfully created</p>:""
+                    }
+                    
+
                     <button type='submit' className="block w-full p-3 text-center hover:scale-105 cursor-pointer rounded-sm text-gray-50 bg-[#2E86AB]">Sign Up</button>
                 </form>
                 <div className="flex items-center pt-4 space-x-1">
