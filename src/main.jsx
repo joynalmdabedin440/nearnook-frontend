@@ -10,6 +10,10 @@ import Merchant from './routes/Merchant.jsx';
 import MerchantLogin from './pages/Auth/MerchantLogin.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
 import MerchantDashboard from './pages/MerchantDashboard.jsx';
+import AddProduct from './components/AddProduct.jsx';
+import Orders from './components/Orders.jsx';
+import Products from './components/Products.jsx';
+import Analytics from './components/Analytics.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -21,7 +25,14 @@ createRoot(document.getElementById('root')).render(
           <Route path='/signUp' element={<Register />} />
           <Route path='/merchant' element={<Merchant />} />
           <Route path='/merchantLogin' element={<MerchantLogin />} />
-          <Route path='/dashboard' element={<MerchantDashboard/>}/>
+
+          <Route path='/dashboard' element={<MerchantDashboard />}>
+            <Route path='add-product' element={<AddProduct/> } />
+            <Route path='orders' element={<Orders/> } />
+            <Route path='products' element={<Products/> } />
+            <Route path='analytics' element={<Analytics/> } />
+
+          </Route>
         </Routes>
       </BrowserRouter>
     </AuthProvider>

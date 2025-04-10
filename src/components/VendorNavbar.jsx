@@ -1,5 +1,6 @@
 
 import  { useEffect, useState } from 'react';
+import { NavLink } from 'react-router';
 
 const VendorNavbar = () => {
 
@@ -19,16 +20,16 @@ const VendorNavbar = () => {
                 </a>
                 <ul className=" hidden space-x-3 md:flex items-center">
                     <li className="flex">
-                        <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 border-transparent">Analytics</a>
+                        <NavLink to="analytics" rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 border-transparent">Analytics</NavLink>
                     </li>
                     <li className="flex">
-                        <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 border-transparent">Products</a>
+                        <NavLink to="products" className="flex items-center px-4 -mb-1 border-b-2 border-transparent">Products</NavLink>
                     </li>
                     <li className="flex">
-                        <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 border-transparent ">Orders</a>
+                        <NavLink to="orders" className="flex items-center px-4 -mb-1 border-b-2 border-transparent ">Orders</NavLink>
                     </li>
                     <li className="flex ">
-                        <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-white bg-[#2E86AB] rounded-4xl h-1/2 ">Add Product</a>
+                        <NavLink to="add-product"  className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-white bg-[#2E86AB] rounded-4xl h-1/2 ">Add Product</NavLink>
                     </li>
                     <li className="flex ">
                         <h1 className="flex items-center px-4 -mb-1 border-b-2 border-transparent   rounded-4xl h-1/2 font-bold text-xl">{ merchant?.name?.toUpperCase()}</h1>
