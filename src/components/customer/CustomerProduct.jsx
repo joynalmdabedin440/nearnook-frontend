@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CartContext } from '../../pages/Explore';
 
-const CustomerProduct = ({item}) => {
+const CustomerProduct = ({ item }) => {
+    
+    const {setCartItemNumber,cartItemNumber} = useContext(CartContext)
 
     const handleAddToCart = (item) => {
         // Logic to add the item to the customer's cart
         console.log("Added to Cart:", item);
         // For example, you can use a state or context to store the cart items
+        setCartItemNumber(cartItemNumber+1)
     };
     
     const handleViewDetails = (item) => {
