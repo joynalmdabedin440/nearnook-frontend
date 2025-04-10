@@ -1,20 +1,22 @@
 
-import { useEffect, useState } from 'react';
+import {  useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../providers/AuthProvider';
 
 const VendorNavbar = ({ setMerchantInfo }) => {
 
     const [merchant, setMerchant] = useState(null)
 
-   
     
 
     useEffect(() => {
         fetch('http://localhost:5000/merchant')
             .then(res => res.json())
             .then(data => {
-                setMerchant(data)
-                setMerchantInfo(data)
+
+                setMerchant(data[data.length-1])
+                setMerchantInfo(data[data.length - 1])
+               
             })
 
 

@@ -7,7 +7,7 @@ export const AuthContext = createContext(null)
 
 
 const AuthProvider = ({ children }) => {
-    
+
     const createMerchant = (email, password) => {
         return createUserWithEmailAndPassword(auth,email,password)
 
@@ -21,7 +21,9 @@ const AuthProvider = ({ children }) => {
     const merchantInfo = {
 
         createMerchant,
-        loginMerchant
+        loginMerchant,
+        
+
 
     }
     return (
