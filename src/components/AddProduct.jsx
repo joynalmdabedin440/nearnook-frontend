@@ -1,9 +1,18 @@
 import React from 'react';
+import { useOutletContext } from 'react-router';
 import { ToastContainer, toast } from 'react-toastify';
 
 const AddProduct = () => {
+
+    const { merchantInfo } = useOutletContext()
+    const shopName = merchantInfo?.shopName
+
+   
+    
     const handleProductUpload = e => {
         e.preventDefault()
+
+
 
         const form = e.target
 
@@ -13,7 +22,7 @@ const AddProduct = () => {
         const photoUrl = form.photoUrl.value
         const description = form.description.value
 
-        const productDetails = { productName, stock, price, photoUrl, description };
+        const productDetails = { productName, stock, price, photoUrl, description,shopName   };
 
         fetch("http://localhost:5000/addProduct", {
             method: "POST",

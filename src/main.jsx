@@ -27,10 +27,11 @@ createRoot(document.getElementById('root')).render(
           <Route path='/merchantLogin' element={<MerchantLogin />} />
 
           <Route path='/dashboard' element={<MerchantDashboard />}>
-            <Route path='add-product' element={<AddProduct/> } />
-            <Route path='orders' element={<Orders/> } />
-            <Route path='products' element={<Products/> } />
-            <Route path='analytics' element={<Analytics/> } />
+            <Route index element={<AddProduct />} />
+            <Route path='add-product' element={<AddProduct />} />
+            <Route path='orders' element={<Orders />} />
+            <Route path='products' element={<Products />} />
+            <Route path='analytics' element={<Analytics />} />
 
           </Route>
         </Routes>
