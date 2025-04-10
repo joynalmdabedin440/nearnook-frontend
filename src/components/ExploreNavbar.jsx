@@ -6,7 +6,7 @@ const ExploreNavbar = () => {
     return (
         <nav className="flex items-center justify-between px-6 py-3 shadow-md bg-white">
         {/* Left: Logo */}
-        <Link to="/" className="text-2xl font-bold text-blue-600">
+        <Link to="/" className="text-2xl font-bold text-[#2E86AB]">
           NearNook
         </Link>
   
@@ -27,7 +27,7 @@ const ExploreNavbar = () => {
           {/* Login */}
           <Link
             to="/signIn"
-            className="px-4 py-1 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm"
+            className="px-4 py-1 bg-[#2E86AB] text-white rounded-md hover:bg-blue-700 text-sm"
           >
             Login
           </Link>

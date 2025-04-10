@@ -3,10 +3,14 @@ import { useEffect, useState } from 'react';
 import ExploreNavbar from '../components/ExploreNavbar';
 import { AuthContext } from '../providers/AuthProvider';
 import { Link } from 'react-router';
+import Product from '../components/merchant/Product';
+import CustomerProduct from '../components/customer/CustomerProduct';
 
 const Explore = () => {
 
     const [merchants, setMerchants] = useState([])
+
+    const [products, setProducts] = useState([])
 
     useEffect(() => {
         fetch('http://localhost:5000/merchant')
@@ -19,13 +23,25 @@ const Explore = () => {
             })
     }, [])
 
+    useEffect(() => {
+        fetch('http://localhost:5000/addProduct')
+            .then(res => res.json())
+            .then(data => {
+
+                setProducts(data);
+            })
+    }, [])
+
+
+
+
 
     return (
         <div>
             <ExploreNavbar />
 
             <section className='mt-10 w-11/12 mx-auto'>
-               {/* shop name showcase */}
+                {/* shop name showcase */}
                 <div>
                     <h1 className='text-[#2E86AB] font-bold text-2xl m-4'>Popular Shop</h1>
                     <div className="flex justify-between gap-2 flex-wrap">
@@ -46,7 +62,13 @@ const Explore = () => {
                 {/* popular product */}
 
                 <div>
-                    
+                    <h1 className='text-[#2E86AB] font-bold text-2xl m-4'>Popular Product</h1>
+                    <div className='grid grid-cols-1 md:grid-cols-3 gap-3'>
+                        {
+                            products.map(item => <CustomerProduct key={item._id} item={item} />)
+
+                        }
+                    </div>
                 </div>
 
             </section>
