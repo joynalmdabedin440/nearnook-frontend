@@ -77,27 +77,27 @@ const MerchantRegister = () => {
                     
                     <div className="space-y-1 text-sm">
                         <label htmlFor="username" className="block text-gray-600">Enter your Name</label>
-                        <input type="text" name="names" id="name" placeholder="Name" className="w-full px-4 py-3 rounded-md border bg-gray-50 text-gray-800 " />
+                        <input type="text" name="names" id="name" placeholder="Name" required className="w-full px-4 py-3 rounded-md border bg-gray-50 text-gray-800 " />
                     </div>
                     <div className="space-y-1 text-sm">
                         <label htmlFor="username" className="block text-gray-600">Enter your Shop Name</label>
-                        <input type="text" name="shopName" id="shopName" placeholder="Shop Name" className="w-full px-4 py-3 rounded-md border bg-gray-50 text-gray-800 " />
+                        <input type="text" name="shopName" id="shopName" placeholder="Shop Name" required className="w-full px-4 py-3 rounded-md border bg-gray-50 text-gray-800 " />
                     </div>
                     <div className="space-y-1 text-sm">
                         <label htmlFor="username" className="block text-gray-600">Enter your Shop Location</label>
-                        <input type="text" name="shopLocation" id="name" placeholder="Shop Location" className="w-full px-4 py-3 rounded-md border bg-gray-50 text-gray-800 " />
+                        <input type="text" name="shopLocation" id="name" placeholder="Shop Location" required className="w-full px-4 py-3 rounded-md border bg-gray-50 text-gray-800 " />
                     </div>
                     <div className="space-y-1 text-sm">
                         <label htmlFor="username" className="block text-gray-600">Type of Vendor</label>
-                        <input type="text" name="shopType" id="name" placeholder="Shop Type " className="w-full px-4 py-3 rounded-md border bg-gray-50 text-gray-800 " />
+                        <input type="text" name="shopType" id="name" placeholder="Shop Type " required className="w-full px-4 py-3 rounded-md border bg-gray-50 text-gray-800 " />
                     </div>
                     <div className="space-y-1 text-sm">
                         <label htmlFor="username" className="block text-gray-600">Enter your Email</label>
-                        <input type="email" name="email" id="email" placeholder="Email" className="w-full px-4 py-3 rounded-md border bg-gray-50 text-gray-800 " />
+                        <input type="email" name="email" id="email" placeholder="Email" required className="w-full px-4 py-3 rounded-md border bg-gray-50 text-gray-800 " />
                     </div>
                     <div className="space-y-1 text-sm">
                         <label htmlFor="password" className="block text-gray-600">Create Password</label>
-                        <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border bg-gray-50 text-gray-800 " />
+                        <input type="password" name="password" id="password" placeholder="Password" required className="w-full px-4 py-3 rounded-md border bg-gray-50 text-gray-800 " />
                         <div className="flex justify-end text-xs text-gray-600">
                             <a rel="noopener noreferrer" href="#">Forgot Password?</a>
                         </div>

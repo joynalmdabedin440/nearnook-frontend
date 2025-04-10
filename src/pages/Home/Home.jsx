@@ -8,10 +8,10 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 const Home = () => {
 
-    const {name} = useContext(AuthContext)
+    const { name } = useContext(AuthContext)
 
     console.log(name);
-    
+
     return (
         <div className=''>
             <div
@@ -32,13 +32,17 @@ const Home = () => {
 
                 </div>
 
+                <div className='mx-auto w-1/4 mt-10   '>
+                    <Link  to="/explore" className='btn font-bold bg-[#2E86AB] text-white cursor-pointer hover:scale-105'>Explore the Shop <FaArrowRight className='inline' /> </Link>
+                </div>
+
 
             </div>
 
             <div className='w-1/3 mx-auto  mb-4'>
                 <h1 className='font-bold text-xl'>Become a Merchant</h1>
                 <p>Attract new customers and grow sales, starting with 0% commissions for up to one year.</p>
-                <Link to='/merchant' className='text-[#2E86AB]   font-bold cursor-pointer'>Register As a Shop Owner <FaArrowRight className='inline'/> </Link>
+                <Link to='/merchant' className='text-[#2E86AB]   font-bold cursor-pointer'>Register As a Shop Owner <FaArrowRight className='inline' /> </Link>
 
             </div>
         </div>

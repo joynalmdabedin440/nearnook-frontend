@@ -1,10 +1,13 @@
 
 import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 
 const VendorNavbar = ({ setMerchantInfo }) => {
 
     const [merchant, setMerchant] = useState(null)
+
+   
+    
 
     useEffect(() => {
         fetch('http://localhost:5000/merchant')
@@ -20,9 +23,9 @@ const VendorNavbar = ({ setMerchantInfo }) => {
     return (
         <header className="p-4 bg-gray-100 text-gray-800">
             <div className="container flex justify-between  h-16 mx-auto text-[#2E86AB] ">
-                <a rel="noopener noreferrer" href="#" aria-label="Back to homepage" className="flex items-center p-2">
+                <Link to="/" rel="noopener noreferrer" aria-label="Back to homepage" className="flex items-center p-2">
                     <h1 className='font-bold text-xl '>{merchant?.shopName?.toUpperCase() || "Shop Name"}</h1>
-                </a>
+                </Link>
                 <ul className=" hidden space-x-3 md:flex items-center">
                     <li className="flex">
                         <NavLink to="analytics" rel="noopener noreferrer" className={({ isActive }) =>
