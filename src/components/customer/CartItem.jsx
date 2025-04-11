@@ -1,7 +1,10 @@
 import React from 'react';
 
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item,handleRemove }) => {
+   
+
+
     return (
         <div>
             
@@ -31,11 +34,13 @@ const CartItem = ({ item }) => {
                     </div>
 
                     <div className="flex justify-between items-center mt-2">
-                        <button
+                        <button onClick={() => {
+                            handleRemove(item?._id)
+                        }}
                             className="btn btn-sm rounded-full bg-[#2E86AB] text-white hover:bg-[#226c8a] transition"
 
                         >
-                            View Details
+                            Remove
                         </button>
                     </div>
                 </div>

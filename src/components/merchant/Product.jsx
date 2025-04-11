@@ -1,9 +1,7 @@
 import React from 'react';
 
 const Product = ({ item,handleDelete }) => {
-    console.log(item);
     
-
     return (
         <div className="card bg-white  rounded-2xl shadow-md transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg overflow-hidden">
             <figure className="w-full h-52 overflow-hidden">
