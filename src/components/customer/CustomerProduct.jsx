@@ -1,11 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, } from 'react';
 import { CartContext } from '../../pages/Explore';
 
 const CustomerProduct = ({ item }) => {
-    
+
     const { setCartItemNumber, cartItemNumber } = useContext(CartContext)
-    
-    
+
+
+
+
+
 
     const handleAddToCart = (item) => {
         if (cartItemNumber < 10) {
@@ -27,19 +30,27 @@ const CustomerProduct = ({ item }) => {
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
-                
-            })    
-        
+
+            })
+
     }
 
-        
-   
-    
+
+
+
     const handleViewDetails = (item) => {
-        // Logic to view product details (you could use React Router for navigation)
-        console.log("Viewing details for:", item.productName);
-        // Navigate to product details page or show a modal
+
+        {/* Open the modal using document.getElementById('ID').showModal() method */ }
+
+        console.log(item);
+
+
+        document.getElementById('my_modal_5')?.showModal();
+
     };
+
+
+
     return (
         <div className="card bg-white rounded-2xl shadow-md transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg overflow-hidden">
             <figure className="w-full h-52 overflow-hidden">
@@ -75,6 +86,36 @@ const CustomerProduct = ({ item }) => {
                     </button>
                 </div>
             </div>
+
+            <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box space-y-4">
+
+                    <>
+                        <h3 className="font-bold text-2xl text-[#2E86AB]">{item?.productName}</h3>
+                        <img
+                            src={item?.photoUrl}
+                            alt={item?.productName}
+                            className="w-full h-52 object-cover rounded-lg"
+                        />
+                        <p className="text-gray-700">{item.description}</p>
+                        <p className="text-lg font-semibold text-[#2E86AB]">Price: {item.price} Tk</p>
+                        <div className='flex justify-between'>
+                            <p className="text-sm text-gray-500">Stock: {item.stock || 'N/A'}</p>
+                            <p>Discount: 10%</p>
+                            
+                        </div>
+                        <p>Shipment : <span className='text-[#2E86AB]  cursor-pointer'>Home</span> and <span  className='text-[#2E86AB]  cursor-pointer'>Vendor</span></p>
+
+                        <div className="modal-action">
+                            <form method="dialog">
+                                <button className="btn btn-sm rounded bg-[#2E86AB] text-white">Close</button>
+                            </form>
+                        </div>
+                    </>
+
+                </div>
+            </dialog>
+
         </div>
     );
 };

@@ -66,8 +66,8 @@ const Explore = () => {
                         <div className="flex justify-between gap-2 flex-wrap">
 
                             {
-                                merchants.map(merchant => (
-                                    <Link
+                                merchants.map((merchant,index) => (
+                                    <Link key={index}
                                         to={`/${merchant?.shopName}`}
                                         className="border-2 rounded-full px-6 py-2 bg-[#2E86AB] text-white font-semibold text-lg hover:bg-[#1c6e8a] transition-colors duration-300"
                                     >
