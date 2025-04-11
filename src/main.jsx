@@ -15,6 +15,7 @@ import Orders from './components/Orders.jsx';
 import Products from './components/Products.jsx';
 import Analytics from './components/Analytics.jsx';
 import Explore from './pages/Explore.jsx';
+import CartItems from './components/customer/CartItems.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -37,6 +38,7 @@ createRoot(document.getElementById('root')).render(
           </Route>
 
           <Route path="/explore" element={<Explore />} />
+          <Route path="/cart" element={<CartItems />} />
           
         </Routes>
       </BrowserRouter>

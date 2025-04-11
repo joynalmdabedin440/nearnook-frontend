@@ -17,7 +17,9 @@ const Explore = () => {
 
     const [products, setProducts] = useState([])
 
-    const [cartItemNumber,setCartItemNumber] = useState(0)
+    const [cartItemNumber, setCartItemNumber] = useState(0)
+   
+    
 
     useEffect(() => {
         fetch('http://localhost:5000/merchant')
@@ -42,7 +44,8 @@ const Explore = () => {
 
     const cartInfo = {
         cartItemNumber,
-        setCartItemNumber
+        setCartItemNumber,
+        
     }
 
 
@@ -52,9 +55,11 @@ const Explore = () => {
     return (
         <CartContext.Provider value={cartInfo} >
             <div>
-                <ExploreNavbar />
+                <div className="sticky top-0 z-50 bg-white shadow">
+                    <ExploreNavbar />
+                </div>
 
-                <section className='mt-10 w-11/12 mx-auto'>
+                <section className='mt-10 w-11/12 mx-auto '>
                     {/* shop name showcase */}
                     <div>
                         <h1 className='text-[#2E86AB] font-bold text-2xl m-4'>Popular Shop</h1>

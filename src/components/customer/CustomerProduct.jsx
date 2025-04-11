@@ -3,14 +3,37 @@ import { CartContext } from '../../pages/Explore';
 
 const CustomerProduct = ({ item }) => {
     
-    const {setCartItemNumber,cartItemNumber} = useContext(CartContext)
+    const { setCartItemNumber, cartItemNumber } = useContext(CartContext)
+    
+    
 
     const handleAddToCart = (item) => {
-        // Logic to add the item to the customer's cart
-        console.log("Added to Cart:", item);
-        // For example, you can use a state or context to store the cart items
-        setCartItemNumber(cartItemNumber+1)
-    };
+        if (cartItemNumber < 10) {
+            setCartItemNumber(cartItemNumber + 1)
+        }
+        else {
+            alert("No more Item you can add")
+        }
+
+        //add to cart items
+        fetch("http://localhost:5000/addtocart",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(item),
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                
+            })    
+        
+    }
+
+        
+   
     
     const handleViewDetails = (item) => {
         // Logic to view product details (you could use React Router for navigation)
